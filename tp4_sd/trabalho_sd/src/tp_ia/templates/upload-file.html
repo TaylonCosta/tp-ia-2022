@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+    {% block content %}
+        <!-- Responsive navbar-->
+            <!-- Header-->
+        <header class="py-5">
+            <div class="container px-lg-5">
+                <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+                    <div class="m-4 m-lg-5">
+                        {%if user.is_authenticated %}
+                            <h4>Olá {{user.first_name}}! Bem vindo</h4>
+                        {%else%}
+                            <h4>Olá visitante, Faça login <a href="{%url 'login'%}">clicando aqui</a> ou crie uma conta nova <a href="{%url 'user-registro'%}">clicando aqui</a></h4>
+                        {%endif%}
+                        <p class="fs-4">Trabalho realizado para disciplina de Inteligência Artificial da UFVJM</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        {% endblock content %}
+</html>
